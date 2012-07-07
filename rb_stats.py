@@ -19,8 +19,7 @@ def parse_req_params(pargs):
 
 def run_main():
 	parser = argparse.ArgumentParser(description='Review Board Stats')
-	parser.add_argument('--base_api_url', help='The ReviewBoard base API URL',
-		default='https://reviews.apache.org/api/review-requests')
+	parser.add_argument('base_api_url', help='The ReviewBoard base API URL')
 	parser.add_argument('--from-user', help='Only Review Requests by this user')
 	parser.add_argument('--max-results', type=int,
 		help='Maximum number of Review Requests to retrieve (default: %(default)s)',
