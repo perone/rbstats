@@ -37,7 +37,7 @@ def run_main():
 	args = parser.parse_args()
 	req_params = parse_req_params(vars(args))
 
-	ret = requests.get(args.base_api_url, params=req_params)
+	ret = requests.get(args.base_api_url + '/review-requests', params=req_params)
 	js = json.loads(ret.content)
 
 	graph_data = defaultdict(int)
