@@ -1,4 +1,3 @@
-import json
 from collections import defaultdict
 import argparse
 
@@ -48,11 +47,10 @@ def run_main():
 
     ret = requests.get(args.base_api_url + '/review-requests',
                        params=req_params)
-    js = json.loads(ret.content)
 
     graph_data = defaultdict(int)
 
-    for review in js['review_requests']:
+    for review in ret.json['review_requests']:
         submitter = review['links']['submitter']['title']
 
         for people in review['target_people']:
