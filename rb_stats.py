@@ -1,5 +1,4 @@
 import json
-import getpass
 from collections import defaultdict
 import argparse
 
