@@ -59,12 +59,12 @@ def run_main():
             reviewer = people['title']
             graph_data[(submitter, reviewer)] += 1.0
 
-    xaxis = list(set(map(lambda x: x[0], graph_data.keys())))
-    yaxis = list(set(map(lambda x: x[1], graph_data.keys())))
+    xaxis = sorted(set(x[0] for x in graph_data.iterkeys()), reverse=True)
+    yaxis = sorted(set(x[1] for x in graph_data.iterkeys()))
 
     arr = np.zeros((len(xaxis), len(yaxis)))
 
-    for k, v in graph_data.items():
+    for k, v in graph_data.iteritems():
         x, y = k
         arr[xaxis.index(x), yaxis.index(y)] = v
 
